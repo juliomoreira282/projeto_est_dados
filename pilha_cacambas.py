@@ -6,6 +6,15 @@ print("Digite 'P' para remover uma caçamba da pilha.")
 print("Digite 'V' para ver a caçamba do topo da pilha.")
 print("Digite 'S' para sair.")
 
+def adicionar_cacamba(cacamba: str):
+    if cacamba.startswith("Caçamba"):
+            pilha_cacambas.append(cacamba)
+            print(f"Caçamba adicionada: {cacamba}")
+
+def remover_cacamba():
+    cacamba_removida = pilha_cacambas.pop()
+    print(f"Caçamba removida: {cacamba_removida}")
+
 while True:
     comando = input("Comando: ").strip()
     if comando.lower() == 's':
@@ -14,13 +23,10 @@ while True:
 
     elif comando.lower() == 'a':
         cacamba = input("Qual caçamba deseja adicionar? (Formato: Caçamba + Número) \n").capitalize()
-        if cacamba.startswith("Caçamba"):
-            pilha_cacambas.append(cacamba)
-            print(f"Caçamba adicionada: {cacamba}")
+        adicionar_cacamba(cacamba)
 
     elif comando.lower() == 'p':
-        cacamba_removida = pilha_cacambas.pop()
-        print(f"Caçamba removida: {cacamba_removida}")
+        remover_cacamba()
 
     elif comando.lower() == 'v':
         cacamba_topo = pilha_cacambas[-1]
